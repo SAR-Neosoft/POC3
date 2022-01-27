@@ -1,0 +1,127 @@
+<h3>Create User</h3>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4" >  
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup]="usersaveform" #saveuser (ngSubmit)="saveUser(saveUser)">  
+          <div class="form-group">  
+              <label for="name">User Name</label>  
+              <input type="text" class="form-control"  formControlName="name" data-toggle="tooltip"   
+                 data-placement="right" title="Enter User Name" >  
+              <div class="alert alert-danger" *ngIf = "(UserName.touched) && (UserName.invalid)"   
+                style="margin-top: 5px;">  
+                  <span *ngIf="UserName.errors.required">User Name is Required</span>  
+                    <span *ngIf = "UserName.errors.minlength">   
+                        MinLength Error   
+                    </span>                     
+                </div>  
+          </div>  
+<!-- ============================================================================== -->
+<div class="form-group">  
+    <label for="name">Surname</label>  
+    <input type="text" class="form-control"  formControlName="surname" data-toggle="tooltip"   
+       data-placement="right" title="Enter surname Name" >  
+    <div class="alert alert-danger" *ngIf = "(UserSurame.touched) && (UserSurame.invalid)"   
+      style="margin-top: 5px;">  
+        <span *ngIf="UserSurame.errors.required">User Surname is Required</span>  
+          <span *ngIf = "UserSurame.errors.minlength">   
+              MinLength Error   
+          </span>                     
+      </div>  
+</div>  
+<!-- ============================================================================== -->
+<div class="form-group">  
+    <label for="name"> DateOfBirth</label>  
+    <input type="date" class="form-control"  formControlName="dateOfBirth" data-toggle="tooltip"   
+       data-placement="right" title="UserDateOfBirth" >  
+    <div class="alert alert-danger" *ngIf = "(UserDateOfBirth.touched) && (UserDateOfBirth.invalid)"   
+      style="margin-top: 5px;">  
+        <span *ngIf="UserDateOfBirth.errors.required">User DateOfBirth is Required</span>                      
+      </div>  
+</div> 
+<!-- ============================================================================== -->
+<div class="form-group">  
+    <label for="name">User Email</label>  
+    <input type="text" class="form-control" formControlName="email"   
+      data-toggle="tooltip" data-placement="right" title="Enter User Email">  
+      <div class="alert alert-danger" *ngIf = "(UserEmail.touched) && (UserEmail.invalid)"   
+      style="margin-top: 5px;">  
+        <span *ngIf="UserEmail.errors.required">User Email is Required</span>  
+          <span *ngIf = "UserEmail.errors.email">   
+              Invalid Email Format   
+          </span>                     
+      </div>  
+</div> 
+
+<!-- ============================================================================== -->
+<div class="form-group">  
+    <label for="name">Password</label>  
+    <input type="text" class="form-control"  formControlName="password" data-toggle="tooltip"   
+       data-placement="right" title="Enter User Password" >  
+    <div class="alert alert-danger" *ngIf = "(UserPassword.touched) && (UserPassword.invalid)"   
+      style="margin-top: 5px;">  
+        <span *ngIf="UserPassword.errors.required">User Password is Required</span>  
+          <span *ngIf = "UserPassword.errors.minlength">   
+              MinLength Error   
+          </span>                     
+      </div>  
+</div> 
+<!-- ============================================================================== -->
+<div class="form-group">  
+    <label for="name">DateOfJoining</label>  
+    <input type="date" class="form-control"  formControlName="dateOfJoining" data-toggle="tooltip"   
+       data-placement="right" title="Enter User DateOfJoining" >  
+    <div class="alert alert-danger" *ngIf = "(UserDateOfJoining.touched) && (UserDateOfJoining.invalid)"   
+      style="margin-top: 5px;">  
+        <span *ngIf="UserDateOfJoining.errors.required">User DateOfJoining is Required</span>  
+          <span *ngIf = "UserDateOfJoining.errors.minlength">   
+              MinLength Error   
+          </span>                     
+      </div>  
+</div> 
+<!-- ============================================================================== -->
+<div class="form-group">  
+    <label for="name">Country</label>  
+    <input type="text" class="form-control"  formControlName="country" data-toggle="tooltip"   
+       data-placement="right" title="Enter User Name" >  
+    <div class="alert alert-danger" *ngIf = "(UserCountry.touched) && (UserCountry.invalid)"   
+      style="margin-top: 5px;">  
+        <span *ngIf="UserCountry.errors.required">UserCountry is Required</span>  
+          <span *ngIf = "UserCountry.errors.minlength">   
+              MinLength Error   
+          </span>                     
+      </div>  
+</div> 
+<!-- ============================================================================== -->
+<div class="form-group">  
+    <label for="name">Pincode</label>  
+    <input type="text" class="form-control"  formControlName="pincode" data-toggle="tooltip"   
+       data-placement="right" title="Enter Pincode" >  
+    <div class="alert alert-danger" *ngIf = "(UserPincode.touched) && (UserPincode.invalid)"   
+      style="margin-top: 5px;">  
+        <span *ngIf="UserPincode.errors.required">User Pincode is Required</span>  
+          <span *ngIf = "UserPincode.errors.minlength">   
+              MinLength Error   
+          </span>                     
+      </div>  
+</div> 
+<!-- ============================================================================== -->
+
+
+    
+          <button type="submit" class="btn btn-success">Submit</button>  
+      </form>  
+  </div>  
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4">  
+      <div [hidden]="!submitted">  
+         <h4>User Added SuccessFully!</h4>  
+         <button (click)="addUserForm()" class='btn btn-primary'>Add More User</button>  
+      </div>        
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  

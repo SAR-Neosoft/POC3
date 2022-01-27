@@ -1,0 +1,129 @@
+<div class="panel panel-default">  
+    <div class="panel-heading">  
+        <h1 style="text-align: center">Users</h1><br>  
+        <div class="row" [hidden]="!deleteMessage">  
+               
+                  <div class="col-sm-4"></div>  
+                  <div class="col-sm-4">  
+                          <div class="alert alert-info alert-dismissible">  
+                                  <button type="button" class="close" data-dismiss="alert">×</button>  
+                                  <strong>User Data Deleted</strong>  
+                          </div>  
+                  </div>  
+                  <div class="col-sm-4"></div>  
+          </div>             
+      </div>  
+    
+      
+    <div class="panel-body">  
+        <table  class="table table-hover table-sm" datatable [dtOptions]="dtOptions"  
+        [dtTrigger]="dtTrigger"  >  
+            <thead class="thead-light">  
+                <tr>  
+                    <th>Name</th> 
+                    <th>Surname</th> 
+                    <th>DOB</th>
+                    <th>Email</th>  
+                    <th>DOJ</th>  
+                    <th>Country</th>
+                    <th>Pincode</th>
+                    <th>Action</th>  
+                      
+                </tr>  
+            </thead>  
+            <tbody>  
+                 <tr *ngFor="let user of users ">  
+                    <td>{{user.name}}</td>  
+                    <td>{{user.surname}}</td> 
+                    <td>{{user.dateOfBirth}}</td> 
+                    <td>{{user.email}}</td> 
+                    <td>{{user.dateOfJoining}}</td> 
+                    <td>{{user.country}}</td> 
+                    <td>{{user.pincode}}</td>   
+                    <td><button (click)="deleteUser(user.id)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>   
+                      <button (click)="updateUser(user.id)" class='btn btn-info'  
+                      data-toggle="modal" data-target="#myModal">Update</button>  
+                    </td>  
+                  </tr>   
+            </tbody><br>  
+        </table>  
+    </div>  
+  </div>   
+    
+  
+  <div class="modal" id="myModal">  
+          <div class="modal-dialog">  
+            <div class="modal-content">  
+                  <form [formGroup]="userupdateform" #upduse (ngSubmit)="updateUse(upduse)">  
+              <!-- Modal Header -->  
+              <div class="modal-header">  
+                <h4 class="modal-title" style="text-align: center">Update User</h4>  
+                  
+              </div>  
+                
+              <!-- Modal body -->  
+             
+              <div class="modal-body" *ngFor="let user of userlist " >  
+                  <div [hidden]="isupdated">  
+    
+                      <input type="hidden" class="form-control"  formControlName="id" [(ngModel)]="user.id"> 
+
+                              <div class="form-group">  
+                                  <label for="name">User Name</label>  
+                                  <input type="text" class="form-control"  formControlName="name" [(ngModel)]="user.name"  >  
+                              </div>  
+                        
+                              <div class="form-group">  
+                                <label for="name">Surname</label> 
+                                <input type="text" class="form-control"  formControlName="surname"  [(ngModel)]="user.surname"> 
+                              </div>  
+
+                              <div class="form-group">  
+                                <label for="name"> DateOfBirth</label>  
+                                <input type="date" class="form-control"  formControlName="dateOfBirth" [(ngModel)]="user.dateOfBirth"> 
+                                </div>
+
+                                <div class="form-group">  
+                                    <label for="name">User Email</label>  
+                                    <input type="text" class="form-control" formControlName="email"  [(ngModel)]="user.email"> 
+                                </div>
+
+                                <div class="form-group">  
+                                    <label for="name">Password</label>  
+                                    <input type="text" class="form-control"  formControlName="password" [(ngModel)]="user.password"> 
+                                </div>
+
+                                <div class="form-group">  
+                                    <label for="name">DateOfJoining</label>  
+                                    <input type="date" class="form-control"  formControlName="dateOfJoining" [(ngModel)]="user.dateOfJoining"> 
+                                </div>
+
+                                <div class="form-group">  
+                                    <label for="name">Country</label>  
+                                    <input type="text" class="form-control"  formControlName="country" [(ngModel)]="user.country"> 
+                                </div>
+
+                                <div class="form-group">  
+                                    <label for="name">Pincode</label>  
+                                    <input type="text" class="form-control"  formControlName="pincode" [(ngModel)]="user.pincode"> 
+                                </div>
+
+                           
+                    </div>    
+                    <div [hidden]="!isupdated">  
+                        <h4>User Detail Updated!</h4>  
+                    </div>          
+                        
+              </div>  
+            
+                
+              <!-- Modal footer -->  
+              <div class="modal-footer" >  
+                <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>  
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>  
+              </div>  
+                
+          </form>  
+            </div>  
+          </div>  
+        </div>  
